@@ -32,6 +32,12 @@ module Enumerable
     self.each { |element| return false if yield(element) }
     true
   end
+
+  def my_count(&block)
+    return self.length unless block
+    selected = self.my_select { |element| block.call(element) }
+    selected.length
+  end
 end
 
 # You will first have to define my_each
