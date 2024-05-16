@@ -38,6 +38,12 @@ module Enumerable
     selected = self.my_select { |element| block.call(element) }
     selected.length
   end
+
+  def my_map
+    transformed = []
+    self.my_each_with_index { |element, i| transformed[i] = yield(element) }
+    transformed
+  end
 end
 
 # You will first have to define my_each
