@@ -44,6 +44,11 @@ module Enumerable
     self.my_each_with_index { |element, i| transformed[i] = yield(element) }
     transformed
   end
+
+  def my_inject(val)
+    self.each { |element| val = yield(val, element) }
+    val
+  end
 end
 
 # You will first have to define my_each
